@@ -22,7 +22,6 @@ namespace DapperDino.Tutorials.Coroutines
             isScaling = true;
 
             float timer = 0f;
-
             while (timer < duration)
             {
                 timer += Time.deltaTime;
@@ -30,16 +29,19 @@ namespace DapperDino.Tutorials.Coroutines
                 yield return null;
             }
 
+            transform.localScale = Vector3.zero;
+
             yield return new WaitForSeconds(1f);
 
             timer = 0f;
-
             while (timer < duration)
             {
                 timer += Time.deltaTime;
                 transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, timer / duration);
                 yield return null;
             }
+
+            transform.localScale = Vector3.one;
 
             isScaling = false;
         }
