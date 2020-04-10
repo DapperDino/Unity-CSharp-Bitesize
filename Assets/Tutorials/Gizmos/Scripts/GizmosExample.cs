@@ -11,6 +11,8 @@ namespace DapperDino.Tutorials.GizmoTools
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, spawnRadius);
+
+            Gizmos.DrawIcon(transform.position, "Square.png", true);
         }
 
         private void OnDrawGizmosSelected()
