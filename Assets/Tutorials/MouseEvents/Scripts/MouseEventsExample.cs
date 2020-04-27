@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 namespace DapperDino.Tutorials.MouseEvents
 {
-    public class MouseEventsExample : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDragHandler, IPointerUpHandler
+    public class MouseEventsExample : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IDragHandler, IPointerUpHandler, IDropHandler
     {
-        [SerializeField] private Image image = null;
+        private Image image;
+
+        private Vector3 originalPos;
+
+        private void Start() => image = GetComponent<Image>();
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -19,6 +23,11 @@ namespace DapperDino.Tutorials.MouseEvents
             image.color = new Color(1, 1, 1, 1);
         }
 
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            originalPos = transform.position;
+        }
+
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = Mouse.current.position.ReadValue();
@@ -26,12 +35,12 @@ namespace DapperDino.Tutorials.MouseEvents
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            Debug.Log("Up");
+            transform.position = originalPos;
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log("Down");
+            var a = eventData.pointerDrag.gameObject;
         }
     }
 }
