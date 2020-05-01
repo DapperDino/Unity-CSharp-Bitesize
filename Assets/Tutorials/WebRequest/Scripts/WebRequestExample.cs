@@ -23,15 +23,15 @@ namespace DapperDino.Tutorials.WebRequest
 
                 var prediction = JsonUtility.FromJson<Prediction>(webRequest.downloadHandler.text);
 
-                text.text = $"Your age: {prediction.age}";
+                text.text = $"{prediction.name}, I predict your age is {prediction.age}";
             }
         }
-    }
 
-    public class Prediction
-    {
-        public string name;
-        public int age;
-        public int count;
+        public class Prediction
+        {
+            public string name;
+            public int age;
+            public int count;
+        }
     }
 }
