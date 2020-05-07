@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace DapperDino.Tutorials.Spawning
+namespace DapperDino.Tutorials.PlayPrefs
 {
     public class PlayerPrefsExample : MonoBehaviour
     {
