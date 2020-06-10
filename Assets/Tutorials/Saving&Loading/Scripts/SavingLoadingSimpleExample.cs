@@ -3,9 +3,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace DapperDino.Tutorials.Spawning
+namespace DapperDino.Tutorials.SavingLoading
 {
-    public class SavingLoadingExample : MonoBehaviour
+    public class SavingLoadingSimpleExample : MonoBehaviour
     {
         [SerializeField] private ExampleData exampleData = new ExampleData();
 
